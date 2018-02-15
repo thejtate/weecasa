@@ -1,0 +1,500 @@
+.site-header {
+  height: 91px;
+  line-height: 1.2;
+  font-size: 12px;
+  color: $color-2;
+  position: relative;
+  background: #1b1b1b;
+  z-index: 2;
+  transition: .3s background;
+
+  .front & {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+    @media (min-width: $bp-small) {
+
+      &:not(.sticky) {
+        background: transparent;
+
+        .tablet & {
+          margin: 0;
+          transition: margin .4s;
+        }
+      }
+    }
+  }
+
+  &.sticky {
+
+    .front & {
+//      transition: transform 0s;
+//      animation: headerIn 0.6s;
+
+      .tablet & {
+        margin:0 -1px;
+      }
+    }
+
+    & + .pseudo-el {
+
+      .front & {
+
+        @media (min-width: $bp-small) {
+          position: fixed !important;
+        }
+      }
+    }
+  }
+
+  .container {
+    height: 100%;
+    width: 100%;
+
+    @media (min-width: $bp-small) {
+      width: $width-small;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: $width-middle;
+    }
+
+    @media (min-width: $bp-large) {
+      width: $width-large;
+    }
+  }
+
+  .header-inner {
+
+    @media (min-width: $bp-small) {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      transform: translate(0, -50%);
+    }
+  }
+
+  .navigation, .btn-wrap, .link-wrap {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .link-wrap {
+    position: absolute;
+    //top: 50%;
+    top: 75%;
+    right: 5%;
+    transform: translate(0, -50%);
+
+    @media (min-width: $bp-small) {
+      position: relative;
+      top: auto;
+      right: auto;
+      transform: none;
+    }
+
+    a {
+      font-size: 12px;
+      font-family: $montserrat-extrabold;
+      color: $color-2;
+
+      @media (min-width: $bp-middle) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .btn-wrap {
+    position: absolute;
+    //top: 50%;
+    top: 30%;
+    right: 5%;
+    transform: translate(0, -50%);
+
+    @media (min-width: $bp-small) {
+      position: relative;
+      top: auto;
+      right: auto;
+      transform: none;
+      margin-right: 10px;
+    }
+
+    @media (min-width: $bp-middle) {
+      margin-right: 21px;
+    }
+
+    .btn {
+      font-size: 9px;
+      min-width: 0;
+      padding: 9px 5px;
+      line-height: 1;
+
+      @media (min-width: $bp-small) {
+        font-size: 12px;
+        min-width: 114px;
+        padding: 11px;
+        line-height: 1.2;
+      }
+
+      @media (min-width: $bp-middle) {
+        padding: 13px;
+        min-width: 125px;
+      }
+    }
+
+    .front & {
+
+      .btn {
+
+        @media (min-width: $bp-small) {
+
+          &:before {
+            background: #ebebeb;
+          }
+        }
+      }
+    }
+
+    .btn:hover {
+      background: $color;
+    }
+  }
+
+  .logo-mobile {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -4px;
+    margin-left: -10px;
+    width: 100px;
+    transition: opacity .3s;
+    backface-visibility: hidden;
+
+    &:hover {
+      opacity: .5;
+    }
+
+    @media (min-width: $bp-small) {
+      display: none;
+    }
+  }
+
+  .navigation {
+    margin-right: 10px;
+
+    @media (min-width: $bp-small) {
+      margin-right: 0;
+    }
+
+    & > .region-header > .contextual-links-region {
+      position: static;
+
+      @media (min-width: $bp-small) {
+        position: relative;
+      }
+    }
+
+    a.btn-nav {
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      width: 43px;
+      height: 43px;
+      z-index: 9999;
+      transform: translate(0, -50%);
+
+      @media (min-width: $bp-small) {
+        display: none;
+      }
+
+      &:after, &:before {
+        @include pseudo-block($right: 5px, $left: 5px);
+        border-radius: 5px;
+        background: $color-2;
+        height: 6px;
+        transition: background .3s;
+      }
+
+      &:before {
+        top: 13px
+      }
+
+      &:after {
+        bottom: 13px
+      }
+
+      &:hover {
+
+        &:after, &:before {
+          background: $color-2;
+        }
+      }
+    }
+
+    &.nav-active .content > ul.menu {
+      opacity: 1;
+      visibility: visible;
+
+      & > li {
+
+        @media (max-width: $bp-small-mobile) {
+          visibility: visible !important;
+        }
+      }
+    }
+
+    .content > ul.menu {
+      margin: 0;
+      padding: 15px 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      width: 100%;
+      background: $color-2;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s;
+      backface-visibility: hidden;
+      border-bottom: 5px solid $color-3;
+
+      @media (min-width: $bp-small) {
+        padding: 0;
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
+        z-index: auto;
+        width: auto;
+        background: transparent;
+        transition: opacity 0s;
+        opacity: 1;
+        visibility: visible;
+        border: none;
+      }
+
+      & > li {
+
+        @media (max-width: $bp-small-mobile) {
+          visibility: hidden !important;
+        }
+
+        &:last-child {
+
+          @media (min-width: $bp-small) {
+            margin-right: 35px;
+          }
+
+          @media (min-width: $bp-middle) {
+            margin-right: 77px;
+          }
+
+          &:before {
+            @include pseudo-block($right: -20px, $top: 50%);
+            height: 39px;
+            border-right: 2px solid $color-2;
+            display: none;
+            transform: translate(0, -50%);
+
+            @media (min-width: $bp-small) {
+              display: block;
+            }
+
+            @media (min-width: $bp-middle) {
+              right: -45px;
+            }
+          }
+        }
+      }
+
+      ul {
+        margin: 5px 0 0 0;
+
+        @media (min-width: $bp-small) {
+          padding: 32px 0 0 0;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translate(-50%, 0);
+          width: 200px;
+          text-align: center;
+          opacity: 0;
+          visibility: hidden;
+          backface-visibility: hidden;
+          transition: opacity .3s;
+          margin: 0;
+
+          .front & {
+            padding: 17px 0 0 0;
+          }
+
+          li:first-child {
+
+            &:before {
+              @include pseudo-block($bottom: 100%, $left: 50%);
+              transform: translate(-50%, 0);
+              border-bottom: 10px solid $color-2;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+            }
+          }
+        }
+
+        .desktop & {
+          transition: opacity .3s, visibility .3s;
+        }
+
+        li {
+          margin: 0;
+          padding: 0;
+          display: block;
+        }
+
+        a, .nolink {
+          font-size: 12px;
+
+          @media (min-width: $bp-small) {
+            padding: 15px 5px;
+            border: none;
+            display: block;
+            transition: color .3s, background .3s;
+            background: $color-2;
+            color: $color;
+          }
+        }
+
+        a {
+
+          &:hover, &.active {
+
+            @media (min-width: $bp-small) {
+              background: $color;
+              color: $color-2;
+            }
+          }
+        }
+
+        ul {
+
+          @media (min-width: $bp-small) {
+            top: 0;
+            left: 100%;
+            padding: 0;
+            transform: none;
+
+            .front & {
+              padding: 0;
+            }
+          }
+
+          li:first-child:before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+
+      @media (min-width: $bp-small) {
+        display: inline-block;
+        vertical-align: middle;
+        //margin: 0 13px;
+        margin: 0 5px;
+      }
+
+      @media (min-width: $bp-middle) {
+        margin: 0 15px;
+      }
+
+      &.logo-top {
+        margin-top: -17px;
+        display: none;
+
+
+        @media (min-width: $bp-small) {
+          display: inline-block;
+        }
+
+        a .logo-wrapper {
+          transition: opacity .3s;
+          backface-visibility: hidden;
+
+          &:hover {
+            opacity: .6;
+          }
+        }
+      }
+
+      &.expanded:hover {
+
+        & > ul.menu {
+
+          @media (min-width: $bp-small) {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+
+      &:not(.logo-top) {
+
+        a.active, a:hover {
+          color: $color-2;
+          background: $color;
+
+          @media (min-width: $bp-small) {
+            border-color: #fff;
+            background: transparent;
+          }
+        }
+      }
+
+      a, .nolink {
+        color: $color;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: $montserrat-extrabold;
+        display: block;
+        padding: 10px 10px 10px 5%;
+        transition: color .3s, background .3s;
+        backface-visibility: hidden;
+
+        @media (min-width: $bp-small) {
+          color: $color-2;
+          font-size: 11px;
+          padding: 4px 0;
+          display: inline-block;
+          transition: border .3s;
+          border-bottom: 3px solid transparent;
+        }
+
+        @media (min-width: $bp-middle) {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .separator {
+
+    hr {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+
+}

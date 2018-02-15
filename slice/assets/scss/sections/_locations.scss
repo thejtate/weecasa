@@ -1,0 +1,449 @@
+.section-locations {
+  padding: 16px 0;
+  text-align: center;
+  line-height: 1.2;
+  background: $bg-color;
+
+  @media (min-width: $bp-small) {
+    padding: 50px 0;
+  }
+
+  @media (min-width: $bp-middle) {
+    padding: 46px 0 25px;
+  }
+
+  .front & {
+    padding: 30px 0;
+
+    @media (min-width: $bp-small) {
+      padding: 50px 0;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 76px 0 78px;
+    }
+  }
+
+  .container {
+    width: 100%;
+
+    @media (min-width: $bp-small) {
+      width: $width-small + 40px;
+    }
+
+
+    @media (min-width: $bp-middle) {
+      width: $width-middle + 40px;
+    }
+
+
+    @media (min-width: $bp-large) {
+      width: $width-large + 40px;
+
+      .front & {
+        width: 100%;
+
+      }
+    }
+
+    @media (min-width: 1380px) {
+
+      .front & {
+        width: 1310px;
+      }
+    }
+  }
+
+  .btn-link-wrap {
+    text-align: center;
+    margin: 0 0 10px;
+    z-index: 1;
+    position: relative;
+
+    @media (min-width: $bp-small) {
+      //margin: 0 61px 10px 0;
+      margin: 0 0 10px 0;
+      //text-align: right;
+    }
+
+    @media (min-width: $bp-middle) {
+      //margin: 0 21px 10px 0;
+    }
+
+    .btn {
+      padding: 11px 14px;
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+
+        &.ico {
+          font-size: 19px;
+          margin: 3px 7px 0 0;
+        }
+      }
+    }
+  }
+
+  .btn.style-a {
+    min-width: 200px;
+  }
+
+  .btn-all {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: none;
+
+    @media (min-width: $bp-small) {
+      top: 143px;
+    }
+  }
+
+  &.add-dots {
+
+    .btn-all {
+      top: 143px;
+      display: inline-block;
+
+      @media (min-width: $bp-small) {
+        top: 143px;
+      }
+    }
+
+    h2 {
+      margin: 0 0 149px;
+
+      @media (min-width: $bp-small) {
+        margin: 0 0 177px;
+      }
+    }
+  }
+
+  .location {
+    font-size: 18px;
+    font-family: $thinking-of-betty;
+    padding-top: 5px;
+    line-height: 1.7;
+
+    @media (min-width: $bp-small) {
+      padding-top: 0;
+    }
+  }
+
+  h2 {
+    margin: 0 0 26px;
+    text-transform: uppercase;
+
+    @media (min-width: $bp-small) {
+      margin: 0 0 60px;
+    }
+  }
+
+  .items {
+    margin: 0 -7px 20px;
+    @include clearfix();
+    color: $color-2;
+    font-size: 12px;
+    line-height: 1.2;
+
+    @media (min-width: $bp-small) {
+      margin: 0 -7px 56px;
+    }
+
+    .item {
+
+      @media (min-width: $bp-small) {
+       float: none;
+      }
+    }
+
+    .item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  .tilter__figure {
+    position: relative;
+    perspective: 1000px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: $color;
+
+    & > a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    & > * {
+      transform: translateZ(0px);
+    }
+
+    .tilter__deco--overlay {
+      @include pseudo-block($top: 0, $bottom: 0, $left: 0, $right: 0);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .4s;
+      backface-visibility: hidden;
+      width: 100%;
+      height: 100%;
+      background-color: #202020;
+      overflow: hidden;
+
+      .desktop & {
+        transition: opacity .4s, visibility .4s;
+      }
+    }
+
+    &:hover {
+
+      & .tilter__deco--overlay {
+        opacity: .75;
+        visibility: visible;
+      }
+    }
+
+    .tilter__caption, .tilter__deco--lines {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .item {
+    width: 290px;
+    height: 272px;
+    position: relative;
+    margin: 0 6px 15px;
+    display: inline-block;
+
+    @media (min-width: $bp-small) {
+      width: 317px;
+      height: 301px;
+    }
+
+    @media (min-width: $bp-middle) {
+      width: 314px;
+      height: 297px;
+    }
+
+    @media (min-width: $bp-large) {
+      width: 317px;
+      height: 301px;
+
+      .front & {
+        width: 23%;
+        height: 23%;
+      }
+    }
+
+    @media (min-width: 1380px) {
+
+      .front & {
+        width: 317px;
+        height: 301px;
+      }
+    }
+
+    span {
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: $color-2;
+    }
+
+    .btn {
+      color: $color-3;
+
+      &:hover {
+        color: $color-2;
+      }
+    }
+
+    .info {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .4s;
+      backface-visibility: hidden;
+      z-index: 1;
+
+      .desktop & {
+        transition: opacity .4s, visibility .4s;
+      }
+
+//      .inner-wrap {
+//        transform: translate(0, 60px);
+//        transition: transform .4s;
+//      }
+
+      .more {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-family: $montserrat-extrabold;
+        line-height: 1.2;
+        margin-top: 10px;
+        color: $color-2;
+        transform: translate(0, 60px);
+        transition: transform .4s;
+      }
+    }
+
+    &:hover {
+
+      .title-wrap {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .info {
+        opacity: 1;
+        visibility: visible;
+
+        .more,.sleeps {
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+
+  .title-wrap, .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-2;
+  }
+
+  .title-wrap {
+    width: 100%;
+    padding: 0 60px;
+    line-height: 2;
+    transition: opacity .4s;
+
+    @media (min-width: $bp-large) {
+
+      .front & {
+        padding: 0 20px;
+      }
+    }
+
+    @media (min-width: 1380px) {
+
+      .front & {
+        padding: 0 60px;
+      }
+    }
+
+    .desktop & {
+      transition: opacity .4s, visibility .4s;
+    }
+
+    .sub-title {
+      font-family: $montserrat-extrabold;
+      font-size: 18px;
+      display: inline-block;
+    }
+
+    .title {
+      margin: 0;
+      line-height: 1.3;
+      position: relative;
+      font-size: 30px;
+      font-family: $thinking-of-betty;
+
+      @media (min-width: $bp-small) {
+        font-size: 35px;
+      }
+
+      @media (min-width: $bp-large) {
+
+        .front & {
+          font-size: 30px;
+        }
+      }
+
+      @media (min-width: 1380px) {
+
+        .front & {
+          font-size: 35px;
+        }
+      }
+    }
+  }
+
+  .sleeps {
+    font-size: 13px;
+    transform: translate(0, -60px);
+    transition: transform .4s;
+
+    .amount {
+      font-family: $montserrat-extrabold;
+      font-size: 50px;
+    }
+  }
+
+  .b-slider {
+
+    .slide-nav {
+      top: 95px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      position: absolute;
+    }
+
+    .slick-arrow {
+      transform: translate(0, -50%);
+      top: 50%;
+      left: 100%;
+      width: 25px;
+      height: 25px;
+      margin: 0 0 0 21px;
+      background: transparent;
+      transition: opacity .3s;
+      backface-visibility: hidden;
+
+      &:before {
+        @include oneline-sprite-box($s-arrow);
+      }
+
+      &:hover {
+        background: transparent;
+        opacity: .4;
+
+        &:before {
+          @include oneline-sprite-box($s-arrow);
+        }
+      }
+
+      &:after {
+       display: none;
+      }
+    }
+
+    .slick-prev {
+      left: auto;
+      right: 100%;
+      transform: translate(-50%, -50%) rotate(180deg);
+      margin: 0 10px 0 0;
+    }
+
+    & > .slide-nav > .slick-dots {
+      margin: 0;
+
+      button {
+        background-color: $color-2;
+        box-shadow: 1px 1px 11.4px 0.6px rgba(0, 0, 0, 0.18);
+      }
+    }
+  }
+}

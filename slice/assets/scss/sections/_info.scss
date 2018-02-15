@@ -1,0 +1,68 @@
+.section-info {
+  padding: 50px 0;
+  text-align: center;
+  line-height: 2;
+
+  @media (min-width: $bp-small) {
+    padding: 70px 0;
+  }
+
+  @media (min-width: $bp-middle) {
+    padding: 133px 0;
+  }
+
+  &.style-a {
+    color: $color-2;
+
+    .text, h2, a[href^="tel"], a[href^="mailto"] {
+      color: $color-2;
+    }
+
+    a[href^="mailto"] {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .text {
+      font-family: $montserrat-light;
+    }
+  }
+
+  .text {
+    max-width: 440px;
+    margin: 0 auto;
+    font-family: $montserrat-semibold;
+    color: #2e2e2e;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a[href^="tel"], a[href^="mailto"] {
+    color: #2e2e2e;
+  }
+
+  & + .field-collection-view-links {
+    position: absolute;
+    bottom: 37px;
+    right: 0;
+  }
+}
+
+.node-type-contacts {
+
+  .field-collection-view {
+    position: relative;
+  }
+
+  .action-links-field-collection-add {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+

@@ -1,0 +1,59 @@
+//color
+$color: #313131;
+$color-2: #fff;
+$color-3: #000;
+$color-4: #ebebeb;
+$color-5: #d4d4d4;
+$color-6: #dfdfdf;
+$color-7: #1b1b1b;
+
+$color-link: #a5915f;
+
+$rating-bg: #00a680;
+$border-color: $color-4;
+$border-color-2: $color-5;
+$bg-color: $color-4;
+$bg-color-2: $color-5;
+
+//fonts
+$din-regularitalic: din-regularitalic;
+$montserrat-regular: montserrat-regular;
+$montserrat-light: montserrat-light;
+$montserrat-bold: montserrat-bold;
+$montserrat-extrabold: montserrat-extrabold;
+$montserrat-semibold: montserrat-semibold;
+$thinking-of-betty: thinking-of-betty;
+
+
+//grid vars
+//widths
+$width-xsmall: 90%;
+//xs < $bp-small
+$bp-small: 768px;
+$bp-small-mobile: $bp-small - 1px;
+$width-small: 730px;
+//$bp-middle > sm >= $bp-small
+$bp-middle: 992px;
+$width-middle: 970px;
+//$bp-large > md >= $bp-middle
+$bp-large: 1010px;
+$width-large: 981px;
+
+//offsets
+$container-padding-left: 0;
+$container-padding-right: 0;
+
+$container-fluid-padding-left: 0;
+$container-fluid-padding-right: 0;
+
+$row-margin-left: -40px;
+$row-margin-right: -40px;
+
+$col-padding-left: 40px;
+$col-padding-right: 40px;
+
+$row-form-left: -7px;
+$row-form-right: -7px;
+
+$col-form-padding-left: 7px;
+$col-form-padding-right: 7px;

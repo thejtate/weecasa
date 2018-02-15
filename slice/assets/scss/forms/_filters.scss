@@ -1,0 +1,77 @@
+.form-filters {
+  text-align: left;
+
+  @media (min-width: $bp-small) {
+    text-align: center;
+  }
+
+  .row .select2-container {
+    width: 100%;
+  }
+
+  .form-item {
+
+    @media (min-width: $bp-small) {
+      margin-bottom: 0;
+    }
+  }
+
+  .select2-container--default .select2-selection--single {
+    border: none;
+  }
+
+  .form-item.form-type-select  {
+
+    @media (min-width: $bp-small) {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .form-item.form-type-select {
+    margin: 0 0 15px;
+    text-align: left;
+
+    @media (min-width: $bp-small) {
+      margin: 0 10px 27px;
+    }
+
+    @media (min-width: $bp-middle) {
+      margin: 0 10px;
+    }
+
+    .select2-container {
+      width: 100%;
+
+      @media (min-width: $bp-small) {
+        width: 300px;
+      }
+
+      @media (min-width: $bp-middle) {
+        width: 200px;
+      }
+    }
+  }
+
+  .form-checkboxes {
+    margin: 0 0 8px;
+
+    @media (min-width: $bp-small) {
+      margin: 0 13px;
+    }
+  }
+
+  .views-submit-button {
+
+    .ajax-progress {
+      position: absolute;
+      bottom: 100%;
+      margin-bottom: 5px;
+      left: 50%;
+
+      @media (min-width: $bp-small) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

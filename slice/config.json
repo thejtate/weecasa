@@ -1,0 +1,24 @@
+{
+  "scss": {
+    "src": ["./assets/scss/**/*.scss", "!./assets/scss/**/*_*.scss"],
+    "dest": "./public/theme/css",
+    "buildDest": "../trunk/theme/css"
+  },
+  "js": {
+    "src": ["./assets/js/**/*.js"],
+    "dest": "./public/theme/js",
+    "buildDest": "../trunk/theme/js"
+  },
+  "img": {
+    "src": ["./assets/images/**/*", "!./assets/images/sprite", "!./assets/images/sprite/**/*"],
+    "dest": "./public/theme/images",
+    "buildDest": "../trunk/theme/images"
+  },
+  "sprite": {
+    "src": "./assets/images/sprite/*.*",
+    "destImg": "./public/theme/images/",
+    "buildDestImg": "../trunk/theme/images",
+    "destScss": "./assets/scss/",
+    "cssTemplate": "./assets/scss.template.mustache"
+  }
+}

@@ -1,0 +1,632 @@
+/*~~~~~~~~~~~~~~~~~ High Level Formatting ~~~~~~~~~~~~~~~~~ */
+img {max-width: 100%;height: auto;width: auto;}
+
+table  {
+//  table-layout: fixed;
+}
+
+.viewer2_initialmessage {
+  display:none !important;
+}
+#calfooter_scrollup_span {display:none;}
+#rklogo {display:none;}
+input[type="button"]{background-color:#ec861a;color:white;font-weight:bold;border:1px solid #c66e19;padding:5px;font-size:14px;}
+input[type="tel"],input[type="email"],input[type="number"],input[type="text"],input[type="radio"],textarea,select {padding:5px;background-color: #fff;border: 1px solid #aaa;border-radius: 3px 3px 3px 3px;box-shadow: 0 2px 5px #ccc inset;color: #333;}
+
+/* -------- page wrapper -------- */
+#wrap {  }
+#wrap2 {float:left;}
+
+/* -------- availability search form -------- */
+#availabilitysearch {
+//  float:left;
+//  max-width:330px;
+//  width:96%;
+//  margin:20px 0 20px 2px;
+//  background-color:#ffca56;
+//  border:1px solid #feae00;
+}
+#calcheckin {width:20px}
+#calcheckout {width:20px}
+
+/* -------- top header section -------- */
+#header {}
+#header .pagetitle { font-size:16px;font-weight:bold;margin-bottom:5px; }
+#header .headermessage { margin-bottom:10px; }
+
+/* -------- bottom footer section -------- */
+#footer { clear:both;padding:5px 10px 20px 5px;;text-align: center; }
+#footer p {}
+* html #footer { height:1px; }
+
+/* -------- availability results, guest information form -------- */
+#results {}
+#details{ }
+
+/*~~~~~~~~~~~~~~~~~ Section Specific Formatting ~~~~~~~~~~~~~~~~~ */
+/* -------- property information -------- */
+
+/* -------- room/fraction availability listings -------- */
+#span_originalprice {color:#7e7e7e;}
+#span_rateadjustmentname { color:#9c0c1e; }
+
+/* -------- reservation summary -------- */
+.reservationsummary_title { font-size:16px;font-weight:bold;padding-left:10px; }
+.reservationsummary {margin:0 10px 0 20px; }
+.table_pricesummary { font-size:14px; }
+.roomname_td { width:100%; }
+.price_td { text-align:right;max-width:75px; }
+.total_td { text-align:right;font-weight:bold; }
+.totalprice_td { text-align:right;font-weight:bold;border-top:1px solid black; }
+
+/* -------- items for sale -------- */
+#itemsforsale_div {padding-bottom:20px;}
+
+/* -------- reservation summary popups -------- */
+.table_popup_saleitems { max-width:280px;font-size:12px; }
+.table_popup_fees  { max-width:280px;font-size:12px; }
+.table_popup_rooms  {
+  max-width:280px;
+  font-size:12px;
+}
+.table_popup_multinightdiscount  { max-width:280px;font-size:12px; }
+.table_popup_taxes { max-width:280px;font-size:12px; }
+
+/* -------- terms & conditions popups -------- */
+//#overDiv  {width:100%;max-width:300px;background-color:#c6c6c6;}
+#overDiv  {display: none}
+
+/* -------- contact information form -------- */
+#agree_td {font-size:14px;}
+
+/* -------- confirmation/payment page -------- */
+.confirmdetails { width:90%;float:left; }
+.confirmdetails td { font-size:14px; }
+.onlinepaymentsbox { border: green 1px solid;width:90%;background-color:white;margin:20px;padding:10px;text-align:left; }
+
+/* -------- calendar view -------- */
+
+/* -------- additional for calendar on availability search page -------- */
+
+/*--------------- link/button to show More Details popup ---------------------- */
+
+/*--------------- more info popup window ---------------------- */
+.moreinfo_table { max-width:500px;width:100%;}
+.moreinfo_td { padding:10px 0; }
+.highslide-html {max-width:500px;}
+.highslide-footer {max-width:500px;}
+.highslide-container table {table-layout: auto;}
+
+/*USERESPONSIVE*/
+body {
+                                       font-size: 16px;
+                                       line-height: 1.2;
+                                       margin: 0;
+                                     }
+
+@media (min-width: 625px) {
+  body {
+    margin: 0 8px 0 0;
+  }
+}
+
+#header {
+  margin: 0 0 30px;
+  text-align: center;
+}
+
+#header .pagetitle {
+  font-size: 30px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: arial;
+}
+
+input[type="text"],
+input[type="radio"],
+textarea,
+select {
+  padding: 5px;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 2px 5px #ccc inset;
+  color: #333;
+}
+
+#wrap2:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+#results {
+  margin-bottom: 50px;
+  min-height: 160px;
+}
+
+@media (min-width: 731px) {
+  #results {
+    width: 600px;
+    float: left;
+  }
+}
+
+#results table {
+  font-size: 10px;
+  line-height: 1.2;
+  font-family: montserrat-light;
+
+  @media (min-width: 625px) {
+    font-size: 16px;
+  }
+}
+
+#results td {
+  padding: 2px;
+}
+
+@media (min-width: 731px) {
+  #results td {
+    padding: 5px;
+  }
+}
+
+#results .highslide-gallery img {
+  max-width: 100%;
+  vert-align: top;
+}
+
+#results .property_table {
+  width: 100%;
+  background-color: #f2f4f8;
+  border-radius: 10px 10px 0 0;
+}
+
+#results .property_td,
+#results td.roomdetails_td {
+  padding: 10px;
+}
+
+@media (min-width: 625px) {
+  #results .property_td,
+  #results td.roomdetails_td {
+    padding: 20px;
+  }
+}
+
+#results .propertytitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-family: arial;
+}
+
+#results .propertydescription {
+  font-family: verdana;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 13px;
+}
+
+#results .moredetails a,
+#results .roomphoto_caption a,
+#results input[type="button"] {
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 13px;
+  line-height: 1.2;
+  background: #313131;
+  color: #fff;
+  border: 1px solid #313131;
+  transition: background .3s, color .3s;
+  position: relative;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: arial;
+  min-width: 100px;
+}
+
+#results .moredetails a:hover,
+#results .roomphoto_caption a:hover,
+#results input[type="button"]:hover {
+  color: #313131;
+  text-decoration: none;
+  background: #fff;
+}
+
+#results input[type="button"] {
+  padding: 7px 18px;
+  cursor: pointer;
+}
+
+#results .room_table {
+  width: 100%;
+  padding: 5px;
+  border: 4px solid #ebebeb;
+  border-top: none;
+}
+
+#results .roomfractionname {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: arial;
+  margin-bottom: 5px;
+}
+
+#results .roomphoto {
+  text-align: center;
+  padding: 10px 10px 10px 0;
+}
+
+#results .roomphoto .roomphoto_caption {
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+#results .roomdescription {
+  margin: 8px 0;
+}
+
+#results .numguests {
+  float: right;
+  vertical-align: bottom;
+}
+
+#results .numguests table {
+  table-layout: fixed;
+}
+
+#results .numguests .numadults,
+#results .numguests .numchildren {
+  float: left;
+  padding-right: 4px;
+  font-size: 11px;
+}
+
+#results .numguests .numadults div,
+#results .numguests .numchildren div {
+  margin-bottom: 5px;
+}
+
+#results .numguests .numadult {
+  padding-right: 4px;
+}
+
+#results .reservebuttons {
+  float: left;
+  padding: 16px 0 0 8px;
+}
+
+#results .availabilitysearch_table {
+  text-align: center;
+}
+
+#wrap2 {
+  position: relative;
+}
+
+@media (min-width: 731px) {
+  #wrap2 {
+    position: static;
+    padding-top: 0;
+    min-height: 350px;
+  }
+}
+
+#details,
+#availabilitysearch {
+  width: 299px;
+
+  @media (min-width: 625px) {
+    width: 330px;
+  }
+
+  @media (min-width: 731px) {
+    float: right;
+  }
+}
+
+#details {
+  margin: 0 auto;
+
+  @media (min-width: 731px) {
+    margin: 20px 0 20px 2px;
+  }
+
+  #topbar {
+
+    #viewer2 {
+      padding: 80px 0 0 0;
+      text-align: center;
+
+      @media (min-width: 731px) {
+        padding: 100px 0 0 0;
+      }
+    }
+  }
+}
+
+#availabilitysearch {
+  font-family: arial, helvetica, sans-serif;
+  border: 1px solid #000000;
+  background: transparent;
+  margin: 0 auto 20px;
+
+  @media (min-width: 731px) {
+    margin: 0 0 20px 2px;
+  }
+}
+
+#availabilitysearch input[type="button"] {
+  background-color: #ec861a;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #c66e19;
+  padding: 5px;
+  font-size: 14px;
+}
+
+#availabilitysearch .availabilitysearch_table input[type="text"] {
+  vertical-align: middle;
+}
+
+#availabilitysearch .availabilitysearch_table input[type="text"] + a {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("https://s3.amazonaws.com/rkv2/3501/3501724201741346PM__calendar20.PNG") no-repeat;
+  background-size: 100% auto;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+#availabilitysearch .availabilitysearch_table input[type="text"] + a img {
+  display: none;
+}
+
+#topbar {
+  max-width: 330px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 5px 0;
+}
+
+@media (min-width: 731px) {
+  #topbar {
+    margin: 0 auto;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 730px) {
+  #datepicker.dpDiv {
+    left: 0 !important;
+  }
+}
+
+@media (min-width: 731px) {
+  #datepicker.dpDiv {
+    margin-left: -85px;
+  }
+}
+
+#datepicker .dpTable {
+  background-color: #666;
+  font-size: 1.1em;
+  border: 4px solid #666666;
+  padding: 0px;
+}
+
+#datepicker .dpTitleTR {
+  background-color: #666;
+  color: white;
+}
+
+#datepicker .dpTitleText {
+  color: #fff;
+  font-weight: bold;
+}
+
+#datepicker .dpDayTD {
+  color: #fff;
+  background-color: #666;
+  border: 0px;
+  padding: 3px;
+}
+
+#datepicker .dpTR {
+  background-color: #fff;
+}
+
+#datepicker .dpTD {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 0px;
+  border: 0px solid #fff;
+}
+
+#datepicker .dpButton {
+  padding: 0px;
+  background-color: #2782cd;
+  font-size: .96em;
+  color: fff;
+  border: 1px solid #176bb0;
+  margin: 4px;
+}
+
+#datepicker .dpTitleText {
+  font-size: 1.1em;
+}
+
+#datepicker td {
+  line-height: 15px;
+}
+
+#datepicker .dpTDhover {
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+}
+
+#datepicker .dpTodayButtonTR {
+  display: none;
+}
+
+.availabilitysearch_title {
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 0 0 10px;
+}
+
+.availabilitysearch_table {
+  margin: 4px 0 10px 10px;
+  font-size: 14px;
+}
+
+.availabilitysearch_table a {
+  color: #c66e19;
+}
+
+.noavailability {
+  padding: 10px;
+}
+
+#calcheckin,
+#calcheckout {
+  width: 20px;
+}
+
+#footer {
+  text-align: center;
+}
+
+.moreinfo_td {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.moreinfo_td table {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.moreinfo_td .roomfractionname {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-family: arial;
+}
+
+.moreinfo_td .propertyphoto {
+  margin-bottom: 30px;
+}
+
+
+
+/* ---------- */
+
+#results .roomfractionname,
+#results .roomprice_td,
+.roomphoto,
+.propertytitle2 {
+  display: none;
+}
+
+#results .roomdescription {
+  color: transparent;
+  font-size: 0;
+}
+
+#results iframe {
+  border: none;
+}
+
+.moreinfo_td  {
+
+  .roomfractionname, .propertyphoto {
+    direction: none;
+  }
+
+  .roomdescription {
+    color: transparent;
+    font-size: 0;
+  }
+
+  iframe {
+    border: none;
+  }
+}
+
+//div[id^="highslide-wrapper-"] {
+//
+//  @media (max-width: 624px) {
+//    width: calc(100% - 30px) !important;
+//    //width: calc(282px) !important;
+//  }
+//}
+//
+//div[id^="highslide-wrapper-"] *:not('.closebutton') {
+//
+//  @media (max-width: 624px) {
+//    max-width: 100%;
+//    width: auto !important;
+//  }
+//}
+
+.highslide-credits {
+  display: none !important;
+}
+
+.highslide-container {
+
+  @media (max-width: 624px) {
+    width: 260px !important;
+  }
+
+  table {
+
+    @media (max-width: 624px) {
+      width: 260px !important;
+    }
+  }
+
+  div[id^="hsId"] {
+
+    @media (max-width: 624px) {
+      width: 260px !important;
+    }
+  }
+}
+
+.highslide-wrapper {
+
+
+  @media (max-width: 624px) {
+    width: calc(100% - 30px) !important;
+  }
+
+  & * {
+
+    @media (max-width: 624px) {
+      max-width: 100%;
+      width: auto !important;
+      left: 0 !important;
+    }
+  }
+
+  div.closebutton {
+
+    @media (max-width: 624px) {
+      width: 30px !important;
+      max-width: none;
+    }
+  }
+}
+
+

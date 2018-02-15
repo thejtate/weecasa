@@ -1,0 +1,101 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: taki
+ * Date: 8/1/17
+ * Time: 4:13 PM
+ */
+
+function page_creator_function() {
+  $html = '';
+  print theme('page', $html);
+}
+
+/**
+ * Implements hook_menu().
+ */
+function weecasa_custom_menu() {
+  $items['newsletter signup'] = array(
+    'title' => 'newsletter signup',
+    'id' => 'popup_mobile_only',
+    'page callback' => 'page_creator_function',
+    'access callback' => TRUE,
+    'menu_name' => 'menu-footer-menu',
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 999,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function weecasa_custom_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'views_exposed_form':
+      $field_id = 'field_apart_info_people_list';
+
+      // Only alter forms with the necessary field
+      if (isset($form[$field_id .'_value_numeric'])) {
+        // Build a query to get all node ids having the specified field
+        $query = new EntityFieldQuery();
+        $results = $query->entityCondition('entity_type', 'node')
+          ->fieldCondition($field_id, 'value', 'NULL', '!=')
+          ->fieldOrderBy($field_id, 'value', 'ASC')
+          ->execute();
+
+        // Attach the field values to the nodes
+        $nodes = $results['node'];
+        field_attach_load('node', $nodes, FIELD_LOAD_CURRENT, array('field_id' => $field_id));
+
+        // Add a default so the filter is optional
+        $options = array('' => 'HOW MANY?', 1 => '1 PERSON');
+
+        // Build the options array based on the query results, overwriting duplicate entries
+        foreach ($nodes as $nid => $node) {
+          $value = $node->field_apart_info_people_list['und'][0]['value'];
+          $options[$value] = $value . t(' people');
+        }
+
+        // Alter the field
+        $form[$field_id . '_value_numeric']['#type'] = 'select';
+        $form[$field_id . '_value_numeric']['#options'] = $options;
+        $form[$field_id . '_value_numeric']['#size'] = 1;
+      }
+      break;
+    case 'reviews_node_form':
+      $form['actions']['submit']['#submit'][] = '_weecasa_custom_review_redirect_node_submit';
+      break;
+  }
+  if ($form_id == 'apartment_node_form' && empty($form['field_apartment_info_field_coll'][LANGUAGE_NONE][0]['field_apartment_info_fc_titl_txt'][LANGUAGE_NONE][0]['value']['#default_value'])) {
+    $default_title_values = array(
+      'BEDS',
+      'MAX. PEOPLE',
+      'SQ. FT.',
+      'APPLIANCES'
+    );
+    foreach ($default_title_values as $key => $item) {
+      $form['field_apartment_info_field_coll'][LANGUAGE_NONE][$key]['field_apartment_info_fc_titl_txt'][LANGUAGE_NONE][0]['value']['#default_value'] = $item;
+
+    }
+  }
+}
+
+/**
+ * @param $form
+ * @param $form_state
+ *
+ * Custom function for redirect. Used after node reviews type save.
+ */
+function _weecasa_custom_review_redirect_node_submit($form, &$form_state) {
+  $form_state['redirect'] = '/node/' . NODE_PROMOTED;
+}
+/**
+ * Implements hook_entity_info_alter().
+ */
+function weecasa_custom_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['reservation_iframe'] = array(
+    'label' => t('Reservation: iframe'),
+    'custom settings' => TRUE,
+  );
+}

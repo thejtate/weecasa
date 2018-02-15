@@ -1,0 +1,243 @@
+<?php
+
+/**
+ * @file
+ * Siteinfo custom
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function siteinfo_custom_menu() {
+  $items = array();
+
+  $items['admin/site-info-custom/config'] = array(
+    'title' => 'Site Configuration',
+    'description' => 'Site Configuration page',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('siteinfo_custom_site_setings_form'),
+    'access arguments' => array('administer custom siteinfo content configuration'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function siteinfo_custom_permission() {
+  $return = array();
+
+  $return['administer custom siteinfo content configuration'] = array(
+    'title' => t('Allow to administer custom site settings'),
+  );
+
+  return $return;
+}
+
+/**
+ * Site configuration form.
+ */
+function siteinfo_custom_site_setings_form($form) {
+
+  $form['footer'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Footer content'),
+    '#weight' => 1,
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+  $form['footer']['socials'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Social links'),
+    '#weight' => 1,
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+  $form['telephone'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Contact telephones'),
+    '#weight' => 1,
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+  $form['telephone']['siteinfo_mobile_tel'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Header telephone'),
+    '#default_value' => variable_get('siteinfo_mobile_tel', ''),
+  );
+
+  $form['footer']['socials']['siteinfo_facebook'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Facebook url'),
+    '#default_value' => variable_get('siteinfo_facebook', ''),
+  );
+  $form['footer']['socials']['siteinfo_twitter'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Twitter url'),
+    '#default_value' => variable_get('siteinfo_twitter', ''),
+  );
+  $form['footer']['socials']['siteinfo_instagram'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Instagram url'),
+    '#default_value' => variable_get('siteinfo_instagram', ''),
+  );
+  $form['footer']['socials']['siteinfo_pinterest'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Pinterest url'),
+    '#default_value' => variable_get('siteinfo_pinterest', ''),
+  );
+
+  $form['footer']['footer_data'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Footer site info'),
+    '#weight' => 1,
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+
+  $form['footer']['footer_data']['siteinfo_copyright'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Copyright'),
+    '#description' => t(' Use %year% instead of the actual date (do not omit % sign)'),
+    '#default_value' => variable_get('siteinfo_copyright', ''),
+  );
+
+  $form['main_menu'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Main menu'),
+    '#weight' => 1,
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+  $form['main_menu']['main_menu_link_title'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Main menu button text'),
+    '#default_value' => variable_get('main_menu_link_title', ''),
+  );
+  $form['main_menu']['main_menu_link'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Main menu link'),
+    '#default_value' => variable_get('main_menu_link', ''),
+  );
+  $form['sticky_btn'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Sticky button'),
+    '#weight' => 1,
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+  );
+  $form['sticky_btn']['siteinfo_sticky_btn_title'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Button title'),
+    '#default_value' => variable_get('siteinfo_sticky_btn_title', ''),
+  );
+  $form['sticky_btn']['siteinfo_sticky_btn_link'] = array(
+    '#type' => 'textfield',
+    '#required' => FALSE,
+    '#title' => t('Button url'),
+    '#default_value' => variable_get('siteinfo_sticky_btn_link', ''),
+  );
+
+  $form['footer']['siteinfo_seal_footer'] = array(
+    '#type' => 'managed_file',
+    '#title' => t('Footer seal icon'),
+    '#description' => t('Icon image must be png type.'),
+    '#default_value' => variable_get('siteinfo_seal_footer', ''),
+    '#upload_location' => 'public://',
+    '#upload_validators' => array(
+      'file_validate_extensions' => array('png'),
+      'file_validate_size' => array(2 * 1024 * 1024)
+    ),
+  );
+
+  $form['#submit'][] = 'siteinfo_custom_site_settings_form_submit';
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function siteinfo_custom_preprocess_page(&$vars) {
+  $facebook_url = variable_get('siteinfo_facebook', '');
+  if (!empty($facebook_url)) {
+    $vars['facebook_link'] = l('', $facebook_url, array('attributes' => array('target' => '_blank')));
+  }
+  $twitter_url = variable_get('siteinfo_twitter', '');
+  if (!empty($twitter_url)) {
+    $vars['twitter_link'] = l('', $twitter_url, array('attributes' => array('target' => '_blank')));
+  }
+  $instagram_url = variable_get('siteinfo_instagram', '');
+  if (!empty($instagram_url)) {
+    $vars['instagram_link'] = l('', $instagram_url, array('attributes' => array('target' => '_blank')));
+  }
+  $pinterest_url = variable_get('siteinfo_pinterest', '');
+  if (!empty($pinterest_url)) {
+    $vars['pinterest_link'] = l('', $pinterest_url, array('attributes' => array('target' => '_blank')));
+  }
+  $mobile_tel = variable_get('siteinfo_mobile_tel', '');
+  if (!empty($mobile_tel)) {
+    $vars['siteinfo_mobile_tel'] = preg_replace('/[^0-9]/', '', $mobile_tel);
+    $vars['siteinfo_mobile_tel_title'] = $mobile_tel;
+  }
+
+  $vars['copyright'] = str_replace("%year%", date("Y"), variable_get('siteinfo_copyright', ''));
+
+  $menu_link_title = variable_get('main_menu_link_title', '');
+  $menu_link_url = variable_get('main_menu_link', '');
+  if (!empty($menu_link_title)) {
+    $vars['main_menu_link'] = l($menu_link_title, $menu_link_url, array(
+      'attributes' => array(
+        'target' => '_blank',
+        'class' => array('btn')
+      )
+    ));
+  }
+  $term = menu_get_object('taxonomy_term', 2);
+  if (!empty($vars['node']) || !empty($term)) {
+
+    $sticky_btn_title = variable_get('siteinfo_sticky_btn_title', '');
+    $sticky_btn_url = variable_get('siteinfo_sticky_btn_link', '');
+    if (empty($vars['node']->field_basic_page_type_list)) {
+      if (!empty($sticky_btn_url)) {
+        $vars['sticky_btn'] = l($sticky_btn_title, $sticky_btn_url, array(
+          'attributes' => array(
+            'target' => '_blank',
+            'class' => array('btn style-a')
+          )
+        ));
+      }
+    }
+  }
+  $siteinfo_seal = variable_get('siteinfo_seal_footer', '');
+  if (!empty($siteinfo_seal)) {
+    $file = file_load($siteinfo_seal);
+    $uri = $file->uri;
+    $vars['siteinfo_seal_footer'] = file_create_url($uri);
+  }
+}
+
+/**
+ * Form submit callback for siteinfo_seal_footer
+ */
+function siteinfo_custom_site_settings_form_submit($form, &$form_state) {
+
+  if (is_numeric($form_state['values']['siteinfo_seal_footer'])) {
+    if ($form_state['values']['siteinfo_seal_footer'] != 0) {
+      $file = file_load($form_state['values']['siteinfo_seal_footer']);
+      $file->status = FILE_STATUS_PERMANENT;
+      file_save($file);
+      drupal_set_message('Load complete');
+      file_usage_add($file, 'siteinfo_custom', 'file', $file->fid);
+    }
+  }
+}

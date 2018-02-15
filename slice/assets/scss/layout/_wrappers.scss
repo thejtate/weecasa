@@ -1,0 +1,102 @@
+.outer-wrapper {
+  overflow: hidden;
+  position: relative;
+
+  .front & {
+    padding-top: 91px;
+
+    @media (min-width: $bp-small) {
+      padding-top: 0;
+    }
+  }
+}
+
+.content-wrapper {
+  padding: 80px 0 30px;
+
+  @media (min-width: $bp-small) {
+    padding: 90px 0;
+  }
+
+  @media (min-width: $bp-middle) {
+    padding: 110px 0;
+  }
+
+  .page-partners & {
+    padding: 40px 0 30px;
+
+    @media (min-width: $bp-small) {
+      padding: 60px 0 42px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 110px 0 52px;
+    }
+  }
+
+
+  .node-type-events & {
+    padding: 80px 0 30px;
+
+    @media (min-width: $bp-small) {
+      padding: 90px 0 65px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 110px 0 65px;
+    }
+  }
+
+  .page-reservation-house & {
+    padding: 30px 0 10px;
+
+    @media (min-width: $bp-small) {
+      padding: 50px 0 10px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 60px 0 10px;
+    }
+  }
+
+  .page-reservations & {
+    padding: 30px 0 30px;
+
+    @media (min-width: $bp-small) {
+      padding: 50px 0;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 60px 0;
+    }
+
+    &.container {
+      width: 95%;
+
+      @media (min-width: $bp-small) {
+          width: $width-small;
+      }
+
+      @media (min-width: $bp-middle) {
+          width: $width-middle;
+      }
+
+      @media (min-width: $bp-large) {
+          width: $width-large;
+      }
+    }
+
+  }
+
+  .node-type-gallery &, .node-gallery & {
+    padding: 80px 0 20px;
+
+    @media (min-width: $bp-small) {
+      padding: 90px 0 20px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 110px 0 20px;
+    }
+  }
+}

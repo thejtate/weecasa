@@ -1,0 +1,23 @@
+/* these apply to auto-completing form fields */
+html.js input.form-autocomplete {
+  background-image: url('/sites/all/themes/weecasa/images/loader-1.gif');
+  background-position: 100% 0px;
+  background-repeat: no-repeat;
+}
+html.js input.throbbing {
+  background-position: 100% -20px;
+}
+
+/* these apply to all ajax progresses */
+.ajax-progress {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.ajax-progress .throbber {
+  background: transparent url('/sites/all/themes/weecasa/images/loader-1.gif') no-repeat 0px 0px;
+  float: left;
+  height: 20px;
+  width: 20px;
+  margin: 2px;
+}

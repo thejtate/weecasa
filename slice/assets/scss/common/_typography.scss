@@ -1,0 +1,123 @@
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 80px;
+  font-family: $thinking-of-betty;
+  margin: 0 0 23px;
+}
+
+h2 {
+  font-size: 30px;
+  font-family: $montserrat-extrabold;
+  margin: 0 0 20px;
+
+  @media (min-width: $bp-small) {
+    font-size: 35px;
+    margin: 0 0 47px;
+  }
+
+  @media (min-width: $bp-middle) {
+    font-size: 48px;
+    margin: 0 0 47px;
+  }
+
+  .page-reservation-house & {
+    margin-bottom: 5px;
+
+    @media (min-width: $bp-small) {
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: $bp-middle) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+h3 {
+  font-size: 30px;
+  font-family: $thinking-of-betty;
+  margin: 0 0 23px;
+
+  @media (min-width: $bp-small) {
+    font-size: 35px;
+  }
+
+  @media (min-width: $bp-middle) {
+    font-size: 45px;
+  }
+}
+
+h4 {
+  font-size: 20px;
+  font-family: $thinking-of-betty;
+  margin: 0 0 23px;
+  line-height: 1.6;
+
+  @media (min-width: $bp-small) {
+    font-size: 30px;
+    //margin: 0 0 30px;
+    margin: 0 0 25px;
+  }
+
+  @media (min-width: $bp-middle) {
+    font-size: 36px;
+    //margin: 0 0 37px;
+  }
+}
+
+h5 {
+  font-size: 16px;
+  font-family: $montserrat-extrabold;
+  margin: 0 0 23px;
+  text-transform: uppercase;
+
+  @media (min-width: $bp-small) {
+    font-size: 18px;
+    margin: 0 0 12px;
+  }
+}
+
+h6 {
+  font-size: 12px;
+  font-family: $montserrat-bold;
+  margin: 0 0 5px;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0 0 22px;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0 0 0 22px;
+  font-family: $montserrat-regular;
+
+  li {
+    margin: 0 0 16px;
+    padding: 0;
+  }
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+strong {
+  font-family: $montserrat-bold;
+}

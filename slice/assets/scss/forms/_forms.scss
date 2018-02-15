@@ -1,0 +1,263 @@
+input[type="checkbox"],
+input[type="radio"] {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+
+  &.error + label {
+    color: red;
+
+    &:before {
+      @include oneline-sprite-box($s-radio-btn-error);
+    }
+  }
+
+  &:checked, &.error:checked {
+
+    & + label:before {
+      @include oneline-sprite-box($s-radio-btn-a);
+    }
+  }
+
+  & + label {
+    cursor: pointer;
+    position: relative;
+    padding: 5px 0 5px 30px;
+    line-height: 1.4;
+    display: inline-block;
+    font-family: $montserrat-bold;
+    font-size: 12px;
+    color: $color;
+
+    &:before {
+
+      @include pseudo-block($left: 0, $top: 50%);
+      @include oneline-sprite-box($s-radio-btn);
+      transform: translate(0, -50%);
+
+    }
+  }
+}
+
+input:not([type=checkbox]):not([type=radio]), select, textarea {
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+select, input:not([type=submit]):not([type=checkbox]):not([type=radio]), textarea {
+  transition: border-color .3s, box-shadow .3s;
+  background: $color-2;
+  border: 1px solid $color;
+  line-height: 1.2;
+  width: 100%;
+  font-family: $montserrat-regular;
+  color: $color;
+  border-radius: 0;
+  @include input-placeholder($color);
+  padding: 14px 16px;
+  font-size: 12px;
+
+  &:focus:not([type=file]):not([readonly]) {
+    border-color: rgba(0, 0, 0, .4);
+    box-shadow: inset 0 0 9px 0 rgba(0, 0, 0, .4);
+  }
+
+  &.error, &.mktoInvalid {
+    border-color: red;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+select {
+  cursor: pointer;
+  padding-right: 40px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAJCAQAAACoRNXiAAAAK0lEQVQY02NgoA0w/mb8Hw6/oUuaIkmaYuotgEoVYDd6LVBqLW6bj5HsWAAv0Bfed1VYOwAAAABJRU5ErkJggg==');
+  background-position: 96% 50%;
+  background-repeat: no-repeat;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form, #user-login {
+
+  .form-item {
+    margin: 0 0 16px;
+  }
+
+  .form-actions {
+    margin: 12px 0;
+  }
+
+  .mktoError {
+    display: none !important;
+  }
+
+  .row {
+    margin-left: $row-form-left;
+    margin-right: $row-form-right;
+
+    div[class*='col-'] {
+      padding-left: $col-form-padding-left;
+      padding-right: $col-form-padding-right;
+    }
+
+    select, input:not([type=submit]):not([type=checkbox]):not([type=radio]), textarea {
+      width: 100%;
+    }
+  }
+}
+
+.form-submit, #user-login .form-submit#edit-submit {
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: $montserrat-extrabold;
+  display: inline-block;
+  padding: 13px;
+  line-height: 1.2;
+  color: $color-2;
+  background: $color;
+  border: 1px solid $color;
+  transition: background .3s, color .3s;
+  min-width: 93px;
+
+  &:hover {
+    color: $color;
+    background: $color-2;
+    text-decoration: none;
+  }
+}
+
+.form-submit {
+  background: transparent;
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.form-submit-wrap {
+  position: relative;
+  display: inline-block;
+
+  &:before, &:after,  {
+    @include pseudo-block($top: 0, $left: 0);
+    width: 100%;
+    background: $color-2;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &:after {
+    background: $color;
+    height: 0;
+    transition: height .3s;
+  }
+
+  &:hover {
+    color: $color-2;
+    text-decoration: none;
+
+    &:after {
+      height: 100%;
+    }
+  }
+
+  .mobile &, .tablet & {
+
+    &:after {
+      display: none;
+    }
+
+    &:hover {
+      color: $color-3;
+    }
+  }
+}
+
+.webform-confirmation {
+  font-family: $montserrat-regular;
+  font-size: 12px;
+  line-height: 1.7;
+
+  h2 {
+    margin: 0 0 13px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+#user-login {
+  margin: 30px auto;
+  width: $width-xsmall;
+  position: relative;
+  line-height: 1.2;
+  background: transparent;
+  padding: 20px;
+
+  @media (min-width: $bp-small) {
+    width: $width-small;
+    margin: 50px auto;
+  }
+
+  @media (min-width: $bp-middle) {
+    width: $width-middle;
+    margin: 100px auto;
+
+  }
+
+  @media (min-width: $bp-large) {
+    width: $width-large;
+  }
+
+  .form-item {
+    display: block;
+  }
+
+  .form-actions {
+    text-align: center;
+  }
+
+  .form-submit#edit-submit {
+    width: auto;
+    height: auto;
+  }
+
+  .forgot-password {
+    display: none;
+  }
+
+  .login-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: $color;
+    font-family: $montserrat-regular;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media (min-width: $bp-small) {
+      font-size: 24px;
+    }
+  }
+
+  input:not([type=submit]):not([type=checkbox]):not([type=radio]), textarea {
+    margin-bottom: 10px;
+  }
+
+  label {
+    margin-bottom: 10px;
+    font-family: $montserrat-regular;
+    font-size: 16px;
+  }
+}

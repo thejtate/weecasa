@@ -1,0 +1,148 @@
+ul li.leaf {
+  list-style: none;
+}
+
+.logged-in {
+
+  div.tabs, .contextual-links-wrapper {
+
+    a {
+      opacity: 1 !important;
+      color: #000 !important;
+    }
+  }
+
+  .contextual-links-wrapper {
+    font-size: 13px;
+
+    li {
+      background: none !important;
+      font-weight: normal;
+      text-decoration: none;
+      text-transform: none;
+      margin: 0 !important;
+      font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+      padding: 0 !important;
+      display: block !important;
+      float: none !important;
+      width: auto !important;
+
+      a {
+        text-decoration: none;
+        text-transform: none;
+        background: none !important;
+        padding: 5px 10px;
+        margin: 0;
+      }
+    }
+  }
+
+  div.tabs {
+    position: absolute;
+    z-index: 500;
+    right: 0;
+    top: 28px;
+    font-size: 13px;
+    text-align: center;
+
+    .tabs {
+      border-bottom: none;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 2px;
+        margin-bottom: 0;
+
+        &.active a {
+          border: none;
+        }
+      }
+
+      a {
+        border: none;
+        margin: 0;
+        padding: 5px 18px;
+        display: block;
+      }
+    }
+  }
+
+  .sub-nav-wrap {
+
+    & > .field-collection-container {
+      position: relative;
+
+      & > .action-links {
+        position: absolute;
+        top: 70px;
+        right: 10px;
+      }
+    }
+  }
+}
+
+.field-collection-container {
+  margin-bottom: 0;
+  border-bottom: none;
+
+  .field-items .field-item {
+    margin-bottom: 0;
+  }
+}
+
+.field-collection-view {
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+
+  .entity-field-collection-item {
+    float: none;
+  }
+}
+
+ul.field-collection-view-links li {
+  float: left;
+  margin-left: 5px;
+  list-style: none;
+  margin-bottom: 0;
+
+  @media (min-width: $bp-small) {
+    margin-bottom: 16px;
+  }
+
+  a {
+    padding: 2px 5px;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-right: 0;
+    color: #333;
+    border: 1px solid #BBB;
+    background-color: #DDD;
+    height: auto;
+    display: block;
+    text-decoration: none;
+  }
+}
+
+.action-links-field-collection-add li a {
+  color: #333;
+  border: 1px solid #BBB;
+  background-color: #DDD;
+  height: auto;
+  margin-right: 0.5em;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.action-links li {
+  list-style-type: none;
+}
+
+.node-unpublished {
+
+  section {
+    z-index: 1;
+  }
+}

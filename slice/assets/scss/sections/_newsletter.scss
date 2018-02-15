@@ -1,0 +1,182 @@
+.section-newsletter {
+  padding: 40px 0 30px;
+  background-size: cover;
+  background-position: 50% 50%;
+  line-height: 1.2;
+  color: $color-2;
+  display: none;
+
+  @media (min-width: $bp-small) {
+    padding: 50px 0;
+    display: block;
+  }
+
+  @media (min-width: $bp-middle) {
+    padding: 76px 0 70px;
+  }
+
+  .inner-wrap {
+
+    @media (min-width: $bp-small) {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+  }
+
+  .left-part, .right-part {
+
+    @media (min-width: $bp-small) {
+      display: table-cell;
+      vertical-align: middle;
+      padding: 30px 0;
+    }
+  }
+
+  .left-part {
+    position: relative;
+    margin-bottom: 20px;
+
+    @media (min-width: $bp-small) {
+      padding-right: 62px;
+      margin-bottom: 0;
+    }
+
+    &:before {
+      @include pseudo-block($top: 0, $bottom: 0, $right: 17px);
+      height: 100%;
+      border-right: 2px solid $bg-color;
+      display: none;
+
+      @media (min-width: $bp-small) {
+        display: block;
+      }
+    }
+
+    h2 {
+      text-align: center;
+
+      @media (min-width: $bp-small) {
+        text-align: right;
+        line-height: 1.1;
+        margin: 0;
+      }
+
+      br {
+        display: none;
+
+        @media (min-width: $bp-small) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .right-part {
+
+    @media (min-width: $bp-small) {
+      padding-left: 10px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding-left: 33px;
+      padding-right: 66px;
+    }
+  }
+
+  select, input:not([type=submit]):not([type=checkbox]):not([type=radio]), textarea {
+    border: 1px solid $color-2;
+    color: $color-2;
+    @include input-placeholder($color-2);
+    background: transparent;
+
+    &.error, &.mktoInvalid {
+      border-color: red;
+    }
+
+    &:focus:not([type=file]):not([readonly]) {
+      border-color: $color-2;
+      box-shadow: inset 0 0 13px 0 $color-2;
+    }
+  }
+
+  .form-actions {
+    text-align: center;
+
+    @media (min-width: $bp-small) {
+      text-align: left;
+    }
+  }
+
+  .form-submit-wrap {
+
+    .ajax-progress {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      margin-left: 3px;
+
+      .throbber {
+        background-color: #fff;
+        border-radius: 50%;
+        background-position: 1px;
+      }
+    }
+  }
+
+  .form-submit {
+    color: $color-3;
+    border: 1px solid $color-2;
+    background: transparent;
+
+    &:hover {
+      color: $color-2;
+      background: transparent;
+    }
+
+    .mobile &, .tablet & {
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        color: $color-3;
+      }
+    }
+  }
+
+  .webform-confirmation {
+    color: $color-2;
+    text-align: center;
+    padding: 20px 0;
+
+    @media (min-width: $bp-small) {
+      padding: 50px 0;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding: 70px 0;
+    }
+
+    & + .links {
+      display: none;
+    }
+  }
+
+  .webform-client-form {
+
+    & > div {
+
+      @media (min-width: $bp-small) {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      & > .form-actions {
+        display: none;
+      }
+    }
+  }
+}

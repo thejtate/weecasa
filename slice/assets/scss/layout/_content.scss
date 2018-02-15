@@ -1,0 +1,226 @@
+.content-wrapper {
+
+  h1 {
+    margin: 0 0 28px;
+    font-size: 50px;
+
+    @media (min-width: $bp-small) {
+      margin: 0 0 38px;
+      font-size: 75px;
+    }
+
+    @media (min-width: $bp-middle) {
+      margin: 0 0 58px;
+      font-size: 94px;
+    }
+  }
+
+  h2, h1 {
+    text-align: center;
+  }
+
+  .text-x-small {
+    max-width: 405px;
+    margin: 0 auto 22px;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .text-small {
+    max-width: 504px;
+    margin: 0 auto 22px;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .text-x-middle {
+    max-width: 553px;
+    margin: 0 auto 22px;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .text-middle {
+    max-width: 621px;
+    margin: 0 auto 22px;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .text-large {
+    max-width: 830px;
+    margin: 0 auto 22px;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .camp {
+    margin-bottom: 35px;
+
+    h5, .ico, .tabs-nav {
+      text-align: center;
+    }
+
+    .tabs-nav {
+      margin: 0 auto 70px;
+      @include clearfix();
+      line-height: 1.2;
+      max-width: 765px;
+
+      @media (min-width: $bp-middle) {
+        margin: 0 auto 100px;
+      }
+
+      .item {
+        width: 140px;
+        height: 140px;
+        background-color: $bg-color;
+        margin: 0 1px 2px;
+        display: inline-block;
+        transition: background .3s;
+
+        @media (min-width: $bp-small) {
+          width: 144px;
+          height: 144px;
+          float: left;
+          display: block;
+        }
+
+        @media (min-width: $bp-middle) {
+          width: 151px;
+          height: 150px;
+        }
+
+        &:hover {
+          background-color: #fbfbfb;
+        }
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 36px 5px 0;
+        color: $color;
+        font-family: $montserrat-bold;
+        text-decoration: none;
+      }
+
+      .ico {
+        margin-bottom: 8px;
+        display: block;
+        position: relative;
+        height: 60px;
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-height: 100%;
+        }
+      }
+    }
+
+    .tabs-content {
+
+      .item {
+        position: relative;
+        padding: 30px 0;
+
+        @media (min-width: $bp-small) {
+          padding: 50px 20px 60px;
+        }
+
+        @media (min-width: $bp-middle) {
+          padding: 82px 40px 104px;
+        }
+
+        &:last-child {
+          padding-bottom: 30px;
+        }
+
+        &:nth-child(2n+1) {
+          &:after {
+            @include pseudo-block($left: 50%, $top: 0, $bottom: 0);
+            height: 100%;
+            width: 100vw;
+            background: $bg-color;
+            transform: translate(-50%, 0);
+            z-index: -1;
+          }
+        }
+
+        *:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .ico {
+        width: 60px;
+        margin: 0 auto 25px;
+
+        @media (min-width: $bp-small) {
+          width: auto;
+          margin: 0 0 25px;
+        }
+      }
+
+      .row .col {
+        text-align: left;
+      }
+    }
+  }
+
+  .partners {
+    padding-top: 20px;
+
+    @media (min-width: $bp-small) {
+      padding-top: 50px;
+    }
+
+    .row {
+
+      @media (min-width: $bp-large) {
+        margin: 0;
+      }
+    }
+
+    .item {
+      margin-bottom: 40px;
+      text-align: center;
+
+      @media (min-width: $bp-small) {
+        margin-bottom: 53px;
+        text-align: left;
+      }
+    }
+
+    .ico {
+      margin-bottom: 20px;
+    }
+
+    .desc {
+      margin-bottom: 27px;
+
+      & > *:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .btn {
+      text-align: center;
+      min-width: 0;
+    }
+  }
+}

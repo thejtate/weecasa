@@ -1,0 +1,170 @@
+.b-modal {
+  background: rgba(0, 0, 0, .6);
+
+  .modal-dialog {
+    margin: 20px auto;
+    width: $width-xsmall;
+
+    @media (min-width: $bp-small) {
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+    }
+  }
+
+  &.modal {
+
+    &.fade .modal-dialog {
+
+      @media (min-width: $bp-small) {
+        transform: translate(-50%, -100%);
+      }
+    }
+
+    &.in .modal-dialog {
+
+
+      @media (min-width: $bp-small) {
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+
+  .close {
+    margin: 0 3px 0 0;
+    padding: 0;
+    background: none;
+    border: none;
+    line-height: 1;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    background: #ff0000;
+    border-radius: 50%;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    transition: background .3s;
+
+    &:hover {
+      background: $color-3;
+    }
+
+
+    &:before, &:after {
+      @include pseudo-block($left: 50%, $top: 50%);
+      transform: translate(-50%, -50%) rotate(-44deg);
+    }
+
+    &:before {
+      width: 13px;
+      border-bottom: 2px solid $color-2;
+    }
+
+    &:after {
+      height: 13px;
+      border-left: 2px solid $color-2;
+    }
+
+  }
+
+  &#popup-sign-up {
+
+    .modal-dialog {
+      background-position: 50%;
+      background-size: cover;
+    }
+
+    h2 {
+      color: $color-2;
+      text-align: center;
+    }
+
+    .modal-content {
+      background-color: transparent;
+    }
+
+    select, input:not([type=submit]):not([type=checkbox]):not([type=radio]), textarea {
+      border: 1px solid $color-2;
+      color: $color-2;
+      @include input-placeholder($color-2);
+      background: transparent;
+
+      &.error, &.mktoInvalid {
+        border-color: red;
+      }
+
+      &:focus:not([type=file]):not([readonly]) {
+        border-color: $color-2;
+        box-shadow: inset 0 0 13px 0 $color-2;
+      }
+    }
+
+    .form-actions {
+      text-align: center;
+
+      @media (min-width: $bp-small) {
+        text-align: left;
+      }
+    }
+
+    .form-submit {
+      color: $color-3;
+      border: 1px solid $color-2;
+      background: transparent;
+
+      &:hover {
+        color: $color-2;
+        background: transparent;
+      }
+
+      .mobile &, .tablet & {
+
+        &:after {
+          display: none;
+        }
+
+        &:hover {
+          color: $color-3;
+        }
+      }
+    }
+
+    .form-submit-wrap {
+
+      .ajax-progress {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        margin-left: 3px;
+
+        .throbber {
+          background-color: #fff;
+          border-radius: 50%;
+          background-position: 1px;
+        }
+      }
+    }
+
+    .webform-confirmation {
+      color: $color-2;
+      text-align: center;
+      padding: 20px 0;
+
+//      @media (min-width: $bp-small) {
+//        padding: 50px 0;
+//      }
+//
+//      @media (min-width: $bp-middle) {
+//        padding: 70px 0;
+//      }
+
+      & + .links {
+        display: none;
+      }
+    }
+  }
+}

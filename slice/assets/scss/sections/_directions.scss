@@ -1,0 +1,129 @@
+.section-directions {
+  text-align: center;
+  padding-bottom: 35px;
+
+  @media (min-width: $bp-small) {
+    padding-bottom: 45px;
+  }
+
+  &.style-a {
+    background: $bg-color;
+    padding-bottom: 0;
+
+    .container {
+      padding-top: 35px;
+      padding-bottom: 30px;
+
+      @media (min-width: $bp-small) {
+        padding-bottom: 62px;
+      }
+    }
+  }
+
+  .container {
+    padding-top: 35px;
+
+    @media (min-width: $bp-small) {
+      padding-top: 50px;
+    }
+
+    @media (min-width: $bp-middle) {
+      padding-top: 68px;
+    }
+  }
+
+  .address {
+    font-size: 14px;
+    font-family: $montserrat-bold;
+    margin-bottom: 19px;
+
+    @media (min-width: $bp-small) {
+      font-size: 18px;
+    }
+  }
+
+  .desc {
+    text-align: left;
+    max-width: 573px;
+    margin: 0 auto 20px;
+
+    p {
+      margin: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a[href^="tel"] {
+    color: $color;
+  }
+
+  .contact {
+    font-family: $montserrat-regular;
+
+    @media (min-width: $bp-small) {
+      display: table;
+      margin: 0 auto 20px;
+      width: 510px;
+    }
+
+    @media (min-width: $bp-middle) {
+      margin-bottom: 45px;
+    }
+
+    .item {
+      margin-bottom: 20px;
+      color: #020202;
+
+      @media (min-width: $bp-small) {
+        margin-bottom: 0;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 10px;
+        border-right: 1px solid $border-color-2;
+      }
+
+      @media (min-width: $bp-middle) {
+        padding: 9px 10px;
+      }
+
+      &:last-child {
+        border: none;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      a[href^="tel"], a[href^="mailto"] {
+        color: #020202;
+        position: relative;
+        display: inline-block;
+
+        &:before {
+          @include pseudo-block($top: 50%, $left: 0);
+          transform: translate(0, -50%);
+        }
+      }
+
+      a[href^="tel"] {
+        padding: 5px 0 5px 26px;
+
+        &:before {
+          @include oneline-sprite-box($s-ico-tel);
+        }
+      }
+
+      a[href^="mailto"] {
+        padding: 5px 0 5px 33px;
+
+        &:before {
+          @include oneline-sprite-box($s-ico-mail);
+        }
+      }
+    }
+
+  }
+}

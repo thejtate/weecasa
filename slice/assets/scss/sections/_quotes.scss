@@ -1,0 +1,249 @@
+.section-quotes {
+  padding: 30px 0 10px;
+
+  @media (min-width: $bp-small) {
+    padding: 50px 0;
+  }
+
+  @media (min-width: $bp-middle) {
+    padding: 90px 0 103px;
+  }
+
+  .tabs-content {
+    line-height: 1.35;
+    text-align: center;
+    height: 280px;
+    margin-bottom: 32px;
+    display: table;
+    width: 100%;
+
+    @media (min-width: $bp-small) {
+      height: 210px;
+    }
+
+    @media (min-width: $bp-middle) {
+      height: 236px;
+    }
+
+    &.mobile-only {
+      display: block;
+
+      @media (min-width: $bp-small) {
+        display: none;
+      }
+    }
+
+    a.item {
+
+      @media (min-width: $bp-small) {
+        border: 2px solid $bg-color;
+        transition: border .3s;
+      }
+
+      &:hover {
+        border-color: #c0c0c0;
+      }
+    }
+
+    .item {
+      margin-bottom: 20px;
+      padding: 30px;
+      background: $bg-color;
+      display: block;
+      text-decoration: none;
+      color: $color;
+
+      @media (min-width: $bp-small) {
+        padding: 30px;
+        background: $bg-color;
+        margin-bottom: 0;
+      }
+
+      @media (min-width: $bp-middle) {
+        padding: 60px 70px;
+      }
+
+      &:not(.active) {
+        position: absolute !important;
+        z-index: -1;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &.active {
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+      }
+
+      &:after {
+        @include pseudo-block($top: 100%, $left: 50%);
+        transform: translate(-50%, 0);
+        border-top: 15px solid $bg-color;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+
+        @media (min-width: $bp-small) {
+          display: none;
+        }
+      }
+
+      span {
+        display: block;
+      }
+
+      .item-inner {
+        position: relative;
+      }
+    }
+
+    .blockquote, blockquote {
+      font-family: $din-regularitalic;
+      font-size: 18px;
+      margin: 0;
+
+      *:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (min-width: $bp-middle) {
+        font-size: 20px;
+      }
+
+      @media (min-width: $bp-middle) {
+        font-size: 23px;
+      }
+    }
+  }
+
+  .tabs-nav {
+    position: relative;
+    line-height: 1.2;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 20px 50%;
+
+    @media (min-width: $bp-small) {
+      display: block;
+      overflow: visible;
+      padding: 0;
+    }
+
+    .arrow {
+      @include pseudo-block($bottom: 100%, $left: 0);
+      transform: translate(0, -17px);
+      border-top: 15px solid $bg-color;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      display: none;
+      transition: left .4s;
+
+      @media (min-width: $bp-small) {
+        display: block;
+      }
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      display: table;
+
+      @media (min-width: $bp-small) {
+        margin-left: 0 !important;
+        width: 100%;
+        table-layout: fixed;
+      }
+    }
+
+    li {
+      margin: 0 0 20px;
+      list-style: none;
+      text-align: center;
+      position: relative;
+      display: table-cell;
+      vertical-align: middle;
+      padding: 10px 10px;
+
+      @media (min-width: $bp-small) {
+        padding: 30px 10px;
+        margin: 0;
+        border-right: 1px solid $bg-color;
+      }
+
+      &:before {
+        @include pseudo-block($bottom: 100%, $left: 50%);
+        transform: translate(-50%, -17px);
+        border-top: 15px solid $bg-color;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        display: none;
+      }
+
+      &:first-child:before {
+        display: none;
+
+        @media (min-width: $bp-small) {
+          display: none;
+        }
+      }
+
+      &:last-child {
+        border: none;
+      }
+
+      &.active {
+
+        .ico {
+
+          img + img {
+            opacity: 1;
+            visibility: visible;
+            backface-visibility: hidden;
+          }
+        }
+      }
+
+      a:hover {
+
+        .ico {
+
+          img + img {
+
+            .desktop & {
+              opacity: 1;
+              visibility: visible;
+              backface-visibility: hidden;
+            }
+          }
+        }
+      }
+    }
+
+    .ico {
+      position: relative;
+      display: block;
+
+      img {
+        max-width: none;
+
+        @media (min-width: $bp-small) {
+          max-width: 100%;
+        }
+      }
+
+      img + img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .4s;
+
+        .desktop & {
+          transition: opacity .4s, visibility .4s;
+        }
+      }
+    }
+  }
+}

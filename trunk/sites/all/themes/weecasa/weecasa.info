@@ -1,0 +1,29 @@
+name = Weecasa
+description = Site for Weecasa
+core = 7.x
+
+stylesheets[all][] = css/styles.css
+stylesheets[all][] = css/custom.css
+
+scripts[] = js/lib/bootstrap-modal.js
+scripts[] = js/lib/device.js
+scripts[] = js/sticky.js
+scripts[] = js/lib/jquery.dotdotdot.min.js
+scripts[] = js/lib/slick.min.js
+scripts[] = js/lib/jquery.columnizer.js
+scripts[] = js/lib/scrollreveal.min.js
+scripts[] = js/lib/anime.min.js
+scripts[] = js/lib/main.js
+scripts[] = js/lib/ScrollMagic.min.js
+scripts[] = js/lib/TweenMax.min.js
+scripts[] = js/lib/animation.gsap.min.js
+scripts[] = js/lib/select2.full.min.js
+scripts[] = js/js.js
+scripts[] = js/custom.js
+
+regions[header] = Header
+regions[content] = Content
+regions[newsletter] = Newsletter block
+regions[footer] = Footer
+regions[reviews] = Reviews
+regions[popup] = Popup

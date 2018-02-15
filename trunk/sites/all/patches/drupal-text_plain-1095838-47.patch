@@ -1,0 +1,68 @@
+diff --git a/core/modules/field/modules/text/lib/Drupal/text/Tests/TextFieldTest.php b/core/modules/field/modules/text/lib/Drupal/text/Tests/TextFieldTest.php
+index c90abd6..d1b2900 100644
+--- a/core/modules/field/modules/text/lib/Drupal/text/Tests/TextFieldTest.php
++++ b/core/modules/field/modules/text/lib/Drupal/text/Tests/TextFieldTest.php
+@@ -102,14 +102,14 @@
+       'bundle' => 'test_bundle',
+       'label' => $this->randomName() . '_label',
+       'settings' => array(
+-        'text_processing' => TRUE,
++        'text_processing' => FALSE,
+       ),
+       'widget' => array(
+         'type' => $widget_type,
+       ),
+       'display' => array(
+         'full' => array(
+-          'type' => 'text_default',
++          'type' => 'text_plain',
+         ),
+       ),
+     );
+@@ -123,6 +123,10 @@
+
+     // Submit with some value.
+     $value = $this->randomName();
++    if ($field_type == 'text_long') {
++      // Add linebreaks for text area to make sure these are properly displayed.
++      $value .= "\n\n" . $this->randomName();
++    }
+     $edit = array(
+       "{$this->field_name}[$langcode][0][value]" => $value,
+     );
+@@ -135,7 +139,12 @@
+     $entity = field_test_entity_test_load($id);
+     $entity->content = field_attach_view($entity_type, $entity, 'full');
+     $this->content = drupal_render($entity->content);
+-    $this->assertText($value, 'Filtered tags are not displayed');
++    if ($field_type == 'text_long') {
++      // Text areas should have linebreaks converted, while text
++      // fields have linebreaks stripped out by form_type_textfield_value().
++      $value = nl2br(check_plain($value));
++    }
++    $this->assertRaw($value, 'Filtered tags are not displayed');
+   }
+
+   /**
+diff --git a/core/modules/field/modules/text/text.module b/core/modules/field/modules/text/text.module
+index dcf4d1e..d71f192 100644
+--- a/core/modules/field/modules/text/text.module
++++ b/core/modules/field/modules/text/text.module
+@@ -283,7 +283,7 @@
+
+     case 'text_plain':
+       foreach ($items as $delta => $item) {
+-        $element[$delta] = array('#markup' => strip_tags($item['value']));
++        $element[$delta] = array('#markup' => nl2br(strip_tags($item['value'])));  // Use nl2br to preserve linebreaks.
+       }
+       break;
+   }
+@@ -315,7 +315,7 @@
+   if (isset($item["safe_$column"])) {
+     return $item["safe_$column"];
+   }
+-  return $instance['settings']['text_processing'] ? check_markup($item[$column], $item['format'], $langcode) : check_plain($item[$column]);
++  return $instance['settings']['text_processing'] ? check_markup($item[$column], $item['format'], $langcode) : nl2br(check_plain($item[$column]));  // Use nl2br to preserve linebreaks.
+ }
+
+ /**

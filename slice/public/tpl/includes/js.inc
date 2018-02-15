@@ -1,0 +1,16 @@
+<script type="text/javascript" src="common/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="theme/js/lib/bootstrap-modal.js"></script>
+<script type="text/javascript" src="theme/js/lib/device.js"></script>
+<script type="text/javascript" src="theme/js/sticky.js"></script>
+<script type="text/javascript" src="theme/js/lib/jquery.dotdotdot.min.js"></script>
+<!--<script type="text/javascript" src="theme/js/lib/jquery.scrollbar.min.js"></script>-->
+<script type="text/javascript" src="theme/js/lib/slick.min.js"></script>
+<script type="text/javascript" src="theme/js/lib/jquery.columnizer.js"></script>
+<script type="text/javascript" src="theme/js/lib/scrollreveal.min.js"></script>
+<script type="text/javascript" src="theme/js/lib/anime.min.js"></script>
+<script type="text/javascript" src="theme/js/lib/main.js"></script>
+<script type="text/javascript" src="theme/js/lib/ScrollMagic.min.js"></script>
+<script type="text/javascript" src="theme/js/lib/TweenMax.min.js"></script>
+<script type="text/javascript" src="theme/js/lib/animation.gsap.min.js"></script>
+<script type="text/javascript" src="theme/js/lib/select2.full.min.js"></script>
+<script type="text/javascript" src="theme/js/js.js"></script>

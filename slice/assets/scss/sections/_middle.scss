@@ -1,0 +1,8 @@
+.section-middle {
+  padding: 20px 0 30px;
+  text-align: center;
+
+  @media (min-width: $bp-small) {
+    padding: 40px 0 60px;
+  }
+}

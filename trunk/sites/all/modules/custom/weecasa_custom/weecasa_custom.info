@@ -1,0 +1,10 @@
+name = Weecasa custom
+description = Weecasa custom
+package = custom
+core = 7.x
+version = 7.x-1.x
+
+
+;files[] =
+;dependencies[] =
+

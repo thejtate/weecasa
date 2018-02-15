@@ -1,0 +1,75 @@
+.section-slider {
+  padding: 22px 0;
+
+  .node-gallery & {
+    padding: 0 0 20px;
+
+    @media (min-width: $bp-small) {
+      padding: 0 0 22px;
+    }
+  }
+
+  .node-type-gallery & {
+    padding: 0 0 20px;
+
+    @media (min-width: $bp-small) {
+      padding: 0;
+    }
+  }
+
+  .item {
+    margin: 0 10px;
+    position: relative;
+
+    img {
+      width: 290px;
+      height: 243px;
+
+      @media (min-width: $bp-small) {
+        width: 500px;
+        height: 419px;
+      }
+
+      @media (min-width: $bp-middle) {
+        width: 736px;
+        height: 617px;
+      }
+    }
+
+    &:hover {
+
+      .pin {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .pin {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s;
+
+      .desktop & {
+        transition: opacity .3s, visibility .3s;
+      }
+
+      &:before {
+        @include pseudo-block($top: 0, $left: 0);
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+      }
+
+      .inner {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+      }
+    }
+  }
+}

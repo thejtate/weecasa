@@ -1,0 +1,30 @@
+.clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.rteleft {
+  text-align: left;
+}
+
+.rtjustify {
+  text-align: justify;
+}
+
+.rtecenter {
+  text-align: center;
+}
+
+.rteright {
+  text-align: right;
+}

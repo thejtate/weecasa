@@ -1,0 +1,156 @@
+.btn {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: $montserrat-extrabold;
+  display: inline-block;
+  padding: 11px;
+  line-height: 1.2;
+  color: $color-3;
+  border: 1px solid $color-2;
+  transition: background .3s, color .3s;
+  min-width: 114px;
+  position: relative;
+
+  @media (min-width: $bp-middle) {
+    padding: 13px;
+    min-width: 125px;
+  }
+
+  .mobile &, .tablet & {
+
+    &:after {
+     display: none;
+    }
+
+    &:hover {
+      color: $color-3;
+    }
+  }
+
+  &:before, &:after,  {
+    @include pseudo-block($top: 0, $left: 0);
+    width: 100%;
+    background: $color-2;
+    height: 100%;
+    z-index: -1;
+  }
+
+  &:after {
+    background: $color;
+    height: 0;
+    transition: height .3s;
+  }
+
+  &:hover {
+    color: $color-2;
+    text-decoration: none;
+
+    &:after {
+      height: 100%;
+    }
+  }
+
+  &.style-a {
+    color: $color-2;
+    border: 1px solid $color;
+
+    &:before {
+      background: $color;
+    }
+
+    &:after {
+      background: $color-2;
+    }
+
+    &:hover {
+      color: $color;
+    }
+
+    .mobile &, .tablet & {
+
+      &:hover {
+        color: $color-2;
+      }
+    }
+  }
+
+  &.style-b {
+    color: $color-2;
+    background: transparent;
+    font-size: 18px;
+    width: 104px;
+    text-align: center;
+    line-height: 1.2;
+    padding: 41px 13px;
+    border: none;
+    position: relative;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+
+    &:before, &:after {
+      display: none;
+    }
+
+    .hex, .hex-hover {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      z-index: -1;
+      display: block;
+      font-size: 0;
+      transition: height .4s;
+      height: 124px;
+      fill: $color;
+    }
+
+    .hex-hover {
+
+      svg {
+        height: 0px;
+        transition: height .4s;
+        fill: $bg-color-2;
+      }
+    }
+
+    &:hover {
+      color: $color;
+      background: transparent;
+
+      .hex-hover {
+
+        svg {
+          height: 124px;
+        }
+      }
+    }
+  }
+}
+
+.btn-wrap {
+  text-align: center;
+}
+
+.sticky-btn {
+  text-align: right;
+
+  .inner {
+    float: right;
+  }
+
+  a {
+    transform: translate(-100%, 0);
+    white-space: nowrap;
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+  }
+}
+
+.btn-link {
+  font-family: $montserrat-bold;
+  font-size: 12px;
+  color: $color;
+}
+
